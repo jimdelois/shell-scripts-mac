@@ -51,11 +51,9 @@ echo "NOTE: Please run composer config -g github-oauth.github.com YOUR_TOKEN_HER
 
 echo "Installing Node"
 brew install node
-echo "Installed versions:"
-echo "Node:"
-node -v
-echo "NPM:"
-npm -v
+echo "Installed:"
+echo "Node - `node -v`"
+echo "NPM  - `npm -v`"
 
 ### Docker
 
