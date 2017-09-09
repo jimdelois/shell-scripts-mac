@@ -12,6 +12,8 @@ GIT_PS1_SHOWSTASHSTATE=
 GIT_PS1_SHOWUNTRACKEDFILES=
 PS1='[\[\033[36m\]\u \[\033[33m\]\W\[\033[31m\]$(__git_ps1 " %s")\[\033[0m\]]\$ '
 
+alias menagerie="cd /Users/delois/Development/Projects/Managed"
+
 # Flush the DNS cache
 alias flush="sudo discoveryutil mdnsflushcache ; sudo discoveryutil udnsflushcaches ; sudo launchctl stop homebrew.mxcl.dnsmasq ; sudo launchctl start homebrew.mxcl.dnsmasq"
 
