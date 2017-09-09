@@ -99,3 +99,13 @@ echo "Setting Up Resolver"
 sudo mkdir /etc/resolver
 sudo ln -s $DIR/local.lan /etc/resolver/local.lan
 
+if [ -e ~/Pictures/Screenshots ]
+  mkdir ~/Pictures/Screenshots
+fi
+
+
+### Mac OS X
+
+echo "Updating Default Screenshot Location"
+defaults write com.apple.screencapture location ~/Pictures/Screenshots
+killall SystemUIServer
