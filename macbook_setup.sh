@@ -55,12 +55,6 @@ echo "Installed:"
 echo "Node - `node -v`"
 echo "NPM  - `npm -v`"
 
-### Docker
-
-echo "Installing Docker and Related Tools"
-brew install --force docker docker-machine docker-compose docker-machine-nfs dnsmasq
-
-
 ### Bash
 
 # Link the Included Bash Profile Script
@@ -82,4 +76,26 @@ fi
 # Secrets, etc.
 echo "Linking local secrets file"
 ln -s $DIR/bash_secrets ~/.bash_secrets
+
+
+### Docker
+
+echo "Installing Docker and Related Tools"
+brew install --force docker docker-machine docker-compose docker-machine-nfs dnsmasq
+
+echo "Please ensure that VMWare is downloaded and installed, then run:"
+echo "$DIR/local_docker_setup.sh"
+
+echo "Configuring DNSMasq"
+rm /usr/local/etc/dnsmasq.conf 2>/dev/null
+ln -s $DIR/dnsmasq.conf /usr/local/etc/dnsmasq.conf
+
+brew tap homebrew/services
+
+sudo brew services stop dnsmasq
+sudo brew services start dnsmasq
+
+echo "Setting Up Resolver"
+sudo mkdir /etc/resolver
+sudo ln -s $DIR/local.lan /etc/resolver/local.lan
 

@@ -35,11 +35,12 @@ export PATH=$PATH:$GOPATH/bin
 # PHPUnit
 export CVG_DIR="/Users/delois/Desktop/cvg-html";
 
-if which docker-machine > /dev/null; then
-  export DOCKER_TLS_VERIFY="1"
-  export DOCKER_HOST="tcp://172.16.159.128:2376"
-  export DOCKER_CERT_PATH="/Users/delois/.docker/machine/machines/dev"
-  export DOCKER_MACHINE_NAME="local"
+# Docker variables
+
+if docker-machine ls | grep -q "local.*vmwarefusion.*Running"; then
+  eval $(docker-machine env local)
+else
+  echo "Docker Machine \"Local\" is stopped."
 fi
 
 # Secret tokens, etc.
