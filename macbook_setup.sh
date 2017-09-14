@@ -47,6 +47,16 @@ echo "Installing Composer"
 brew install composer
 echo "NOTE: Please run composer config -g github-oauth.github.com YOUR_TOKEN_HERE"
 
+echo "Installing System-wide PHPMD"
+brew install phpmd
+
+echo "Installing System-wide PHPCS"
+brew install php-code-sniffer
+
+echo "Installing System-wide Phing"
+brew install phing
+
+
 ### Node
 
 echo "Installing Node"
