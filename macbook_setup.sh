@@ -18,6 +18,14 @@ xcode-select --install
 echo "Configuring Git User Commit Details"
 git config --global user.name "Jim DeLois"
 git config --global user.email "jim@deloisweb.com"
+git config --global core.excludesfile ~/.gitignore
+
+# Link the Included Git Ignore File
+if [ -e ~/.gitignore ]
+then
+  echo "Linking the Git Ignore File"
+  ln -s $DIR/gitignore ~/.gitignore
+fi
 
 # Install Git Prompt
 echo "Setting up Git Completion and Prompts"
