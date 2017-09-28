@@ -52,3 +52,6 @@ source ~/.bash_secrets
 
 alias blackfire="docker run -it --rm -e BLACKFIRE_CLIENT_ID=$BLACKFIRE_CLIENT_ID -e BLACKFIRE_CLIENT_TOKEN=$BLACKFIRE_CLIENT_TOKEN blackfire/blackfire blackfire "
 alias blackfire-query="blackfire run sh -c 'echo \$BLACKFIRE_QUERY'"
+
+# "N" for Node
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).

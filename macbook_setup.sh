@@ -68,7 +68,10 @@ brew install phing
 ### Node
 
 echo "Installing Node"
-brew install node
+curl -L -o $DIR/n-install.sh http://git.io/n-install
+chmod a+x $DIR/n-install.sh
+$DIR/n-install.sh -n
+rm -rf $DIR/n-install.sh
 echo "Installed:"
 echo "Node - `node -v`"
 echo "NPM  - `npm -v`"
