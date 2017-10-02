@@ -1,5 +1,9 @@
 // Jetbrains Configuration Files
 .idea
 
-// Docker Compose Override Files
+// Docker Override Files
 docker-compose.override.yml
+Dockerfile-override
+
+// Ugh
+.DS_Store
