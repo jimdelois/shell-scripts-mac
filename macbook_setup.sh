@@ -119,6 +119,8 @@ echo "Setting Up Resolver"
 sudo mkdir /etc/resolver
 sudo ln -s $DIR/local.lan /etc/resolver/local.lan
 
+echo "Installing Marina"
+brew install jimdelois/macosx/marina
 
 ### Python
 
@@ -128,7 +130,7 @@ brew install --force python@2
 
 ### Terminal
 
-echo "Setting up Terminal Configurations"
+echo "Setting up iTerm Configurations"
 
 # iTerm Shell Integration
 ln -s $DIR/terminal/iterm2_shell_integration.bash ~/.iterm2_shell_integration.bash
@@ -139,7 +141,7 @@ if [ -e ~/Library/Application\ Support/iTerm2/DynamicProfiles ]
 fi
 ln -s $DIR/terminal/iterm2-dynamic-profiles.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/iterm2-dynamic-profiles.json
 
-# Powerline customizations
+echo "Installing Powerline and its Customizations"
 pip install powerline-status
 
 if [ -e ~/.config ]
