@@ -4,6 +4,14 @@ export XDEBUG_CONFIG="idekey=idekey-xdebug"
 # Git Bash Auto Completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+#. /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+
+powerup() {
+. /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+}
 
 # Git: Prompt formatted to include Git information
 source ~/git-prompt.sh
@@ -15,7 +23,7 @@ PS1='[\[\033[36m\]\u \[\033[33m\]\W\[\033[31m\]$(__git_ps1 " %s")\[\033[0m\]]\$ 
 alias menagerie="cd /Users/delois/Development/Projects/Managed"
 
 # Flush the DNS cache
-alias flush="sudo discoveryutil mdnsflushcache ; sudo discoveryutil udnsflushcaches ; sudo launchctl stop homebrew.mxcl.dnsmasq ; sudo launchctl start homebrew.mxcl.dnsmasq"
+alias flush="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
 
 alias git="hub"
 alias json="python -m json.tool"
@@ -41,9 +49,13 @@ export CVG_DIR="/Users/delois/Desktop/cvg-html";
 
 if docker-machine ls | grep -q "local.*vmwarefusion.*Running"; then
   eval $(docker-machine env local)
+  echo "Docker Machine \"Local\" is running on $(docker-machine ip local)."
 else
   echo "Docker Machine \"Local\" is stopped."
 fi
+
+# For "Too Many Open Files"
+ulimit -n 10240
 
 # Secret tokens, etc.
 source ~/.bash_secrets
@@ -55,3 +67,5 @@ alias blackfire-query="blackfire run sh -c 'echo \$BLACKFIRE_QUERY'"
 
 # "N" for Node
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"

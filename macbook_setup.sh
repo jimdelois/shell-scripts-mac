@@ -17,7 +17,7 @@ xcode-select --install
 
 echo "Configuring Git User Commit Details"
 git config --global user.name "Jim DeLois"
-git config --global user.email "jim@deloisweb.com"
+git config --global user.email "jimdelois@users.noreply.github.com"
 git config --global core.excludesfile ~/.gitignore
 
 # Link the Included Git Ignore File
@@ -119,12 +119,41 @@ echo "Setting Up Resolver"
 sudo mkdir /etc/resolver
 sudo ln -s $DIR/local.lan /etc/resolver/local.lan
 
+
+### Python
+
+echo "Installing Python 2.7"
+brew install --force python@2
+
+
+### Terminal
+
+echo "Setting up Terminal Configurations"
+
+# iTerm Shell Integration
+ln -s $DIR/terminal/iterm2_shell_integration.bash ~/.iterm2_shell_integration.bash
+
+# iTerm Profiles
+if [ -e ~/Library/Application\ Support/iTerm2/DynamicProfiles ]
+  mkdir -p ~/Library/Application\ Support/iTerm2/DynamicProfiles
+fi
+ln -s $DIR/terminal/iterm2-dynamic-profiles.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/iterm2-dynamic-profiles.json
+
+# Powerline customizations
+pip install powerline-status
+
+if [ -e ~/.config ]
+  mkdir -p ~/.config
+fi
+
+ln -s $DIR/terminal/powerline ~/.config/powerline
+echo "Powerline has been installed.  Please install Source Code Pro and other fonts from https://github.com/powerline/fonts"
+
+### Mac OS X
+
 if [ -e ~/Pictures/Screenshots ]
   mkdir ~/Pictures/Screenshots
 fi
-
-
-### Mac OS X
 
 echo "Updating Default Screenshot Location"
 defaults write com.apple.screencapture location ~/Pictures/Screenshots
