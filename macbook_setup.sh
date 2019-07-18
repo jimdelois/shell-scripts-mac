@@ -128,6 +128,11 @@ echo "Installing Python 2.7"
 brew install --force python@2
 
 
+### Scala
+brew install adoptopenjdk
+brew install --force scala
+brew install --force sbt
+
 ### Terminal
 
 echo "Setting up iTerm Configurations"
@@ -143,6 +148,7 @@ ln -s $DIR/terminal/iterm2-dynamic-profiles.json ~/Library/Application\ Support/
 
 echo "Installing Powerline and its Customizations"
 pip install powerline-status
+pip install powerline-gitstatus
 
 if [ -e ~/.config ]
   mkdir -p ~/.config
@@ -150,7 +156,7 @@ fi
 
 ln -s $DIR/terminal/powerline ~/.config/powerline
 echo "Powerline has been installed.  Please install Source Code Pro and other fonts from https://github.com/powerline/fonts"
-
+echo "If Powerline changes have not taken, run \"powerline-daemon --replace\" to restart"
 ### Mac OS X
 
 if [ -e ~/Pictures/Screenshots ]
