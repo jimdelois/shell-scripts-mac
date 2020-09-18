@@ -37,14 +37,14 @@ brew install hub
 
 ### PHP
 echo "Setting up PHP"
-brew tap homebrew/php
-brew install homebrew/php/php71
-brew install homebrew/php/php71-intl
-brew install homebrew/php/php71-xdebug
-# brew install homebrew/php/phpmd
-# brew install homebrew/php/php-code-sniffer
+brew install php
+brew install phpmd
+brew install homebrew/php/php-code-sniffer
+pecl xdebug
+# pecl install intl
 # brew install homebrew/php/php-cs-fixer
 
+# See: https://gist.github.com/jimdelois/245c50bd7d31baa774c07644a39f30f9
 echo "Configuring Personal XDebug Toggler"
 curl -o $DIR/install_xdebug_toggle.sh https://gist.githubusercontent.com/jimdelois/245c50bd7d31baa774c07644a39f30f9/raw/install_xdebug_toggle.sh
 chmod +x $DIR/install_xdebug_toggle.sh
@@ -129,9 +129,14 @@ brew install --force python@2
 
 
 ### Scala
+echo "Installing Scala and SBT (with Open JDK)"
 brew install adoptopenjdk
 brew install --force scala
 brew install --force sbt
+
+### AWS
+echo "Installing the AWS CLI"
+brew install awscli
 
 ### Terminal
 
