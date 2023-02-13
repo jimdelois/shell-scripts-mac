@@ -2,7 +2,9 @@
 export XDEBUG_CONFIG="idekey=idekey-xdebug"
 
 # Git Bash Auto Completion
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+# [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+# The latest `brew install bash-completion` seems to suggest this set of scripts
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
