@@ -38,8 +38,10 @@ brew install hub
 ### PHP
 echo "Setting up PHP"
 brew install php
+echo "Installing System-wide PHPMD"
 brew install phpmd
-brew install homebrew/php/php-code-sniffer
+echo "Installing System-wide PHPCS"
+brew install php-code-sniffer
 pecl xdebug
 # pecl install intl
 # brew install homebrew/php/php-cs-fixer
@@ -55,14 +57,9 @@ echo "Installing Composer"
 brew install composer
 echo "NOTE: Please run composer config -g github-oauth.github.com YOUR_TOKEN_HERE"
 
-echo "Installing System-wide PHPMD"
-brew install phpmd
-
-echo "Installing System-wide PHPCS"
-brew install php-code-sniffer
-
-echo "Installing System-wide Phing"
-brew install phing
+# No longer part of Brew? Try using Composer in the future...
+#echo "Installing System-wide Phing"
+#brew install phing
 
 
 ### Node
