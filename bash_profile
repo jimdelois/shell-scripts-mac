@@ -4,15 +4,6 @@ export XDEBUG_CONFIG="idekey=idekey-xdebug"
 # Git Bash Auto Completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-#. /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-
-powerup() {
-. /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-}
-
 # Git: Prompt formatted to include Git information
 source ~/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true

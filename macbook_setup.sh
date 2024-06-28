@@ -148,17 +148,12 @@ if [ -e ~/Library/Application\ Support/iTerm2/DynamicProfiles ]
 fi
 ln -s $DIR/terminal/iterm2-dynamic-profiles.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/iterm2-dynamic-profiles.json
 
-echo "Installing Powerline and its Customizations"
-pip install powerline-status
-pip install powerline-gitstatus
 
 if [ -e ~/.config ]
   mkdir -p ~/.config
 fi
 
-ln -s $DIR/terminal/powerline ~/.config/powerline
-echo "Powerline has been installed.  Please install Source Code Pro and other fonts from https://github.com/powerline/fonts"
-echo "If Powerline changes have not taken, run \"powerline-daemon --replace\" to restart"
+
 ### Mac OS X
 
 if [ -e ~/Pictures/Screenshots ]
