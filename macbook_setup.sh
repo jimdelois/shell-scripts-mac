@@ -98,13 +98,10 @@ echo "Linking local secrets file"
 ln -s $DIR/bash_secrets ~/.bash_secrets
 
 
-### Docker
+### DNSMasq
 
-echo "Installing Docker and Related Tools"
-brew install --force docker docker-machine docker-compose docker-machine-nfs dnsmasq
-
-echo "Please ensure that VMWare is downloaded and installed, then run:"
-echo "$DIR/local_docker_setup.sh"
+echo "Installing DNSMasq"
+brew install --force dnsmasq
 
 echo "Configuring DNSMasq"
 rm /usr/local/etc/dnsmasq.conf 2>/dev/null

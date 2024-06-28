@@ -45,14 +45,6 @@ export PATH=$PATH:$GOPATH/bin
 # PHPUnit
 export CVG_DIR="/Users/delois/Desktop/cvg-html";
 
-# Docker variables
-
-if docker-machine ls | grep -q "local.*vmwarefusion.*Running"; then
-  eval $(docker-machine env local)
-  echo "Docker Machine \"Local\" is running on $(docker-machine ip local)."
-else
-  echo "Docker Machine \"Local\" is stopped."
-fi
 
 # For "Too Many Open Files"
 ulimit -n 10240
