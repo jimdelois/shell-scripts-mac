@@ -25,8 +25,7 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=$PATH:/Users/delois/.composer/vendor/bin
 # export PATH=$PATH:$HOME/.cabal/bin
 
-# Homebrew PHP onto the CLi
-export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
+
 export PATH="/usr/local/sbin:$PATH"
 
 # Go
