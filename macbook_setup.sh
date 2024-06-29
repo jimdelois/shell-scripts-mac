@@ -24,6 +24,8 @@ echo "Configuring Git User Commit Details"
 git config --global user.name "Jim DeLois"
 git config --global user.email "jimdelois@users.noreply.github.com"
 git config --global core.excludesfile ~/.gitignore
+# See: https://stackoverflow.com/a/9483803
+git config --global core.pager cat
 
 # Link the Included Git Ignore File
 if [ -e ~/.gitignore ]
