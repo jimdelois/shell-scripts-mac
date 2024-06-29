@@ -140,3 +140,9 @@ docker-clean() { docker rm --volumes=true $(docker ps -a -q); docker rmi --force
 
 # Get XDebug going for any CLI requests
 export XDEBUG_CONFIG="idekey=idekey-xdebug"
+
+# For signing Git Commits with GPG
+## See: https://stackoverflow.com/a/57591830
+## See: https://docs.github.com/en/authentication/managing-commit-signature-verification
+GPG_TTY=$(tty)
+export GPG_TTY
