@@ -1,5 +1,10 @@
 DIR=$(pwd)
 
+### Oh My Zsh
+echo "Installing Oh My Zsh";
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
 ### Brew
 
 echo "Installing Brew";
@@ -34,6 +39,10 @@ curl -o ~/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib
 
 echo "Installing Hub"
 brew install hub
+
+## TODO: Consider also installing gh
+## https://cli.github.com/
+# brew install gh
 
 ### PHP
 echo "Setting up PHP"
@@ -81,6 +90,14 @@ then
   ln -s $DIR/bash_profile ~/.bash_profile
 fi
 
+### Zsh
+if [ -e ~/.zshrc ]
+then
+  echo "Linking the Zsh Profile Script"
+  ln -s $DIR/zshrc ~/.zshrc
+fi
+
+### SSH
 if [ -e ~/.ssh ]
 then
   echo "Copying the SSH Directory"
@@ -137,16 +154,19 @@ brew install awscli
 echo "Setting up iTerm Configurations"
 
 # iTerm Shell Integration
+# NOTE: There is now a profile-specific setting to automatically enable shell integration
 ln -s $DIR/terminal/iterm2_shell_integration.bash ~/.iterm2_shell_integration.bash
 
 # iTerm Profiles
 if [ -e ~/Library/Application\ Support/iTerm2/DynamicProfiles ]
+then
   mkdir -p ~/Library/Application\ Support/iTerm2/DynamicProfiles
 fi
 ln -s $DIR/terminal/iterm2-dynamic-profiles.json ~/Library/Application\ Support/iTerm2/DynamicProfiles/iterm2-dynamic-profiles.json
 
 
 if [ -e ~/.config ]
+then
   mkdir -p ~/.config
 fi
 
@@ -154,9 +174,32 @@ fi
 ### Mac OS X
 
 if [ -e ~/Pictures/Screenshots ]
+then
   mkdir ~/Pictures/Screenshots
 fi
 
 echo "Updating Default Screenshot Location"
 defaults write com.apple.screencapture location ~/Pictures/Screenshots
 killall SystemUIServer
+
+
+### Powerline Fonts
+# See: https://github.com/powerline/fonts?tab=readme-ov-file#installation
+echo "Installing Powerline Fonts"
+source ./install_powerline_fonts.sh
+
+### iTerm Themes
+# See: https://github.com/mbadolato/iTerm2-Color-Schemes/tree/master?tab=readme-ov-file#installation-instructions
+# Theme gallery at: https://iterm2colorschemes.com/
+echo "Installing iTerm Themes"
+source ./install_iTerm_themes.sh
+echo "(please restart iTerm to make these themes available)"
+
+### Zsh Theme Customizations
+echo "Installing Zsh Customizations"
+if [ -e ~/.oh-my-zsh/custom/themes ]
+then
+  echo "Linking Zsh Theme Customizations"
+  echo " - Agnoster"
+  ln -s $DIR/terminal/zsh-customizations/themes/agnoster.zsh-theme ~/.oh-my-zsh/custom/themes/agnoster.zsh-theme
+fi
