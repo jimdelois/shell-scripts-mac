@@ -205,3 +205,7 @@ then
   echo " - Agnoster"
   ln -s $DIR/terminal/zsh-customizations/themes/agnoster.zsh-theme ~/.oh-my-zsh/custom/themes/agnoster.zsh-theme
 fi
+
+
+## FINAL NOTES
+echo "Reminder: Please create GPG Keys for Git signing: https://docs.github.com/en/authentication/managing-commit-signature-verification"
